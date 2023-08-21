@@ -1,420 +1,116 @@
-/*Modelos arrowFunction
-more line
-async (param1, param2, ...paramN) => {
-  statements
+
+/*            -------------------------Ejercicios Jonmircha-------------------------
+
+let saludar = 'Hola Mundo'
+
+function miFunction(a = '') {
+    if (typeof a === 'string') {
+        let contar = a.length
+        return contar;
+    }
+    return 'Is not a string';
 }
-One line
-(a, b) => a + b + 100;
+console.log(miFunction(saludar));
 
-*/
-// // Exercise one,Chapter 3
+function miFunction2(a, b) {
+    if (typeof a === 'string' && typeof b === 'number') {
+        let resultado = null;
+        for (i = 0; i < b; i++) {
+            resultado += a[i]
+        }
+        return resultado;
+    }
+    return 'Tokens invalid';
+}
+OTRA FORMA
+slice devuelve una copia de la parte del array dentro de un array empezando
+por inicio hasta el valor deseado, el array original no se modifica
 
-// let min = function(a,b){
-//     if(a<b){
-//         return a;
-//     }
-//     else{
-//         return b;
-//     }
-// }
-// console.log(min(0,10));
-// console.log(min(0,-10));
-
-// // Exercise 2, Chapter 3
-
-// function esPar(num,historia){
-// if(num>-1){
-//     if(num===0){
-//         historia+= ` Es par`;
-//         return historia;
-//     }
-//     else if(num===1){
-//         historia+= ` Es impar`;
-//         return historia;
-//     }
-//     else{
-//         return esPar(num - 2, `(${historia} - 2)`);
-//     }
-// }
-// else{
-//     return null;
-// }
-// }
-// console.log(esPar(10,"10"));
-
-// // Exercise 3, Chapter 3
-
-// let contarFs = txt =>{
-//     let j = txt.length;
-//     let numF=0;
-//     for(let i=0;i<j; i++){
-//         if(txt[i] == "F"){
-//             numF+=1;
-//         }
-//     }
-//     return numF;
-// }
-// contarFs("FFF");
-
-// let contarCaracteres = (txt,abc) =>{
-//     let j = txt.length;
-//     let numAbc=0;
-//     for(let i=0;i<j; i++){
-//         if(txt[i] == abc){
-//             numAbc+=1;
-//         }
-//     }
-//     return numAbc;
-// }
-// contarCaracteres("Hola","H");
-
-// // Execise 1, Chapter 4
-
-// let rango = (inicio , final , paso) =>{
-//     let num = [];
-//     if(final > inicio){
-//         for(let i = inicio ; i <= final ; i += paso ) {
-//             num.push(i)
-//             // console.log(num);
-//         }
-//     }
-//     else{
-//         for(let i = inicio ; i >= final ; i += paso ) {
-//             num.push(i)
-//             // console.log(num);
-//         }
-//     }
-//     return num;
-// }
-// // rango(5,2,-1);
-// // let lista = [1,2,3];
-// let suma = (numeros) =>{
-//     let a = 0;
-//     for(let i=0; i < numeros.length; i++){
-//         console.log(numeros[i])
-//         console.log(a += i)
-//     }
-// }
-// suma(lista);
-
-// console.log(suma(rango(1, 10)));
-
-// // Execise 2, Chapter 4
-// // nose=['A','B','C'];
-
-// let revertirArray =(lista) =>{
-//     let reversed = [];
-//     for(let i = lista.length-1; i >= 0; i--){
-//         reversed += lista[i];
-//     }
-//     return reversed
-// }
-// console.log(revertirArray(nose))
-
-// nose=['A','B','C'];
-
-// let revertirArrayEnSuLugar =(lista) =>{
-//     for(let i = lista.length-2 ; i >= 0; i--){
-//         lista.push(lista[i]);
-//     }
-//     j = lista.length - 3;
-//     for(let i =0; i < j; i++ ){
-//         lista.shift(lista[i]);
-//     }
-//     return lista
-// }
-// console.log(revertirArrayEnSuLugar(nose))
-// //exercise 3, chapter 4
-
-// function arrayALista(array) {
-//     let lista = null;
-//     for (let i = array.length - 1; i >= 0; i--) {
-//       lista = {valor: array[i], resto: lista};
-//     }
-//     return lista;
-//   }
-//   let nose = ['A','B','C']
-//     arrayALista[nose];
-// function listaAArray(lista) {
-//         let array = [];
-//         for (let index = lista; index; index = index--) {
-//           array.push(index.valor);
-//         }
-//         return array;
-//       }
-// //POO With Jonmircha
-// /*
-// Clases - Modelo a seguir
-// Objetos - Es una instancia de una clase
-//     Atributos - Es una caracteristica o propiedad del
-//     objeto (son variables dentro de un objeto)
-//     Metodos - son las acciones que un objeto puede realizar (funciones dentro de un objeto)
-// */
-
-// /*--------------FORMA 1---------------------
-// const animal = {
-//     nombre :'Snoopy',
-//     sonas(){
-//     console.log('Hola')
-//     }
-// }
-// const animal2 = {
-//     nombre :'Lola Bunny',
-//     sonas(){
-//     console.log('Hola')
-//     }
-// }
-// console.log(animal)
-// console.log(animal2)*/
-
-// //Funcion Constructora
-// /*function Animal(nombre,genero) {
-//     //Atributos
-//     this.nombre = nombre;
-//     this.genero = genero;
-
-//     //Metodos
-//     this.saludar = function(){
-//         console.log(`yo soy ${this.nombre}`)
-//     }
-// }
-// const lola = new Animal('Lola Bunny','Hembra'),
-//       snoopy = new Animal('Snoopy', 'Macho');
-// console.log(lola)
-// console.log(snoopy)*/
-
-// /* --------------FORMA 2---------------------
-// //La misma Funcion Constructura, pero ahora con el metodo agregado al prototipo de la funcion constructora(esto para ahorrar recursos)
-// function Animal(nombre,genero) {
-//     //Atributos
-//     this.nombre = nombre;
-//     this.genero = genero;
-//     }
-
-// //Metodo agregado al prototipo de la Funcion Constructora
-// Animal.prototype.saludar = function(){
-//     console.log(`yo soy ${this.nombre}`)
-// }
-// //Herencia Prototipica
-// function Perro(nombre,genero,tamanio){
-//     this.super = Animal
-//     this.super(nombre,genero)
-//     this.tamanio = tamanio
-// }
-// //Perro esta heredando de Animal
-// Perro.prototype = new Animal();
-// Perro.prototype.constructor = Perro
-
-// //Sobreescritura de metodo del prototipo padre en el hijo
-// Perro.prototype.saludar = function(){
-//     console.log('Soy un perro XD');
-// }
-// Perro.prototype.ladrar = function(){
-//     console.log('guau guau')
-// }
-
-// const lola = new Animal('Lola Bunny','Hembra'),
-//       snoopy = new Perro('Snoopy', 'Macho','Mediano');
-// console.log(lola)
-// console.log(snoopy)
-// snoopy.ladrar()*/
-
-// //Clases
-// class Animal{
-//     //El constryctor es un metodo especial que se
-//     //ejecuta en el momento de instanciar la clase
-//     constructor(nombre,genero){
-//         this.nombre = nombre
-//         this.genero = genero
-//     }
-//     //Metodos
-//     saludarChupapija(){
-//         console.log(`Qiuvo perro, yo soy ${this.nombre} XD`);
-//     }
-//     sonar(){
-//         console.log('Me la chupan porque estoy vivo');
-//     }
-
-// }
-// //Herrencia
-// class Perro extends Animal{
-//     constructor (nombre,genero, tamanio){
-//     //super es un metodo que manda a llamar al constructor de la clase padre
-//     super(nombre,genero);
-//     this.tamanio = tamanio;
-//     this.raza = null;
-//     }
-//     sonar(){
-//         console.log(`Soy ${this.nombre} y muerdo`);
-//     }
-//     ladrar(){
-//         console.log('Miau');
-//     }
-//     //Another Metodos
-//         /*----------STATIC-------------
-//     Un metodo estatico se puede ejecutar sin necesidad de
-//     instanciar la clase.*/
-//     static queEres(){
-//         console.log('Mucho texto XD')
-//     }
-//    /*-----------------GETTER Y SETTER------------------
-//    Los setters y getters son metodos especiales que nos
-//    permite estableces y obtener los valores de atributos de nuestra clase.*/
-
-//    //GET obtiene la this.raza
-//    get getRaza(){
-//         return this.raza;
-//    }
-//    //para luego asignarle el valord
-//    set setRaza(raza){
-//         this.raza=raza;
-//    }
-// }
-// Perro.queEres();
-
-// const LOLA = new Animal('Lola','Hembra'),
-//     SCOOBY = new Perro('Scooby doo','Macho','Grande'),
-//     USER = new Animal('Fernando','Macho Pecho peludo');
-
-// USER.saludarChupapija();
-// LOLA.sonar();
-// SCOOBY.sonar();
-// SCOOBY.ladrar();
-// //Es un metodo pero se utiliza como si fueran atributo
-// SCOOBY.setRaza = 'Gran Danese'
-// SCOOBY.raza;
-
-// // Metodo Date()
-// console.log(Date())
-// const fecha = new Date();
-// //Obtenemos el dia del mes
-// console.log(fecha.getDate());
-// //Obtenemos el dia de la semana (Domingo = 0 ; sabado 6)
-// console.log(fecha.getDay());
-// //Obtenemos el mes
-// console.log(fecha.getMonth());
-// /*
-// .getFullYear = obtenemos el a;o 2022
-// .toLocaleString = obtenemos la fecha y hora local
-// .toLocaleDateString = Obtenemos la fecha local
-// .toLocalTimeString = Obtenemos la hora local
-// !!La hora 0 es la hora del meridiano
-// getTimezoneoffser = los minutos de diferencia con la hora 0
-// getUTCDate=dia del mes del meridiano
-// */
-// //segundos de la Time stamp
-// console.log(Date.now())
-
-//Ejercicios Jonmircha
-// {
-//     //#1
-//     let saludar= 'Hola Mundo'
-
-//    function miFunction(a='') {
-//         if(typeof a === 'string'){
-//             let contar = a.length
-//             return contar;
-//         }
-//         return 'Is not a string';
-//     }
-//     console.log(miFunction(saludar));
-
-//     //#2
-//     function miFunction2(a,b){
-//         if(typeof a === 'string' && typeof b === 'number' ){
-//             let resultado = null;
-//             for(i=0 ; i < b ; i++){
-//                 resultado += a[i]
-//             }
-//             return resultado;
-//         }
-//         return 'Tokens invalid';
-//     }
-//     /*OTRA FORMA
-//     slice devuelve una copia de la parte del array dentro de un array empezando
-//     por inicio hasta fin, el array original no se modifica*/
-//     function otraFormaDeMiFunction2(text,num){
-//         if(typeof text !== 'string' && typeof num !== 'number'){
-//             console.error('Datos incorrectos')
-//         }
-//         else{
-//             return text.slice(0, num)
-//         }
-//     }
-//     otraFormaDeMiFunction2('Hola mundo',4)
-//     //#3
-//     function miFunction3(a,b){
-//         if(typeof a === 'string' && typeof b === 'string'){
-//             let valor = '';
-//             let list = [];
-//             for(i=0; i<a.length ; i++){
-//                 if(a[i] != b){
-//                     valor += a[i];
-//                 }
-//                 else{
-//                     list.push(valor);
-//                     valor='';
-//                 }
-//             }
-//             list.push(valor);
-//             return list;
-//         }
-//         return 'Deprecated'
-//     }
-//     /*OTRA FORMA
-//     .split es un metodo que divide un objeto de tipo string en un array(vector) de
-//     cadena,mediante la separacion de la cadena en subcadena
-//     */
-//    function otraFormaDeMiFunction3(text,separador){
-//         if(typeof text !== 'string' && typeof separador !== 'string'){
-//            console.error('Datos incorrectos')
-//         }
-//         else{
-//             return text.split(separador)
-//         }
-//    }
-//     // #4
-//     let miFunction4 = (a,b) =>{
-//         if(typeof a === 'string' && typeof b === 'number'){
-//             num=a.length -1;
-//             if( a[num] != ' '){
-//                 a+=' '
-//             }
-//             let resultado = a.repeat(b);
-//             return resultado;
-//         }
-//         return 'La surre';
-//     }
-    //#5
-//     const miFunction5 = (text) =>{
-//         if(typeof text !== 'string'){
-//             return 'El valor ingresado no es valido';
-//         }
-//         else{
-//             let rev = new String;
-//             for(i = text.length; i >= 0 ; i--){
-//                 rev += text[i];
-//             }
-//             return console.log(rev)
-//         }
-//     }
-//     miFunction5('Hola Juan Carlos Como estas Chupapija');
-//     const otraFormaDeMiFunction5 = (cadena = "") =>
-//     (!cadena)
-//     ?console.warn('No ingresaste una cadena de texto')
-//     //Split separa y lo vuelve un array, join lo une otra vez a string
-//     :console.info(cadena.split('').reverse().join(''));
-// otraFormaDeMiFunction5('Hola Juan Carlos Como estas Chupapiija');
-//     // #6
-//     const miFunction6 = (text,sr)=>{
-//         if(typeof text , typeof sr !== 'string'){
-//             return 'Jala'
-//         }
-//     }
-// }
+const otraFormaDeMiFunction2 = (text, num) => {
+    if (typeof text !== 'string' && typeof num !== 'number') {
+        console.error('Datos incorrectos')
+    }
+    else {
+        return text.slice(0, num)
+    }
+}
+console.log(otraFormaDeMiFunction2('Hola mundo', 4))
 
 
-/*const miFunction7 = (txt,text)=>{
+function miFunction3(a, b) {
+    // if (typeof a === 'string' && typeof b === 'string') {
+    let valor = '';
+    let list = [];
+    for (i = 0; i < a.length; i++) {
+        if (a[i] != b) {
+            valor += a[i];
+        }
+        else {
+            list.push(valor);
+            valor = '';
+        }
+    }
+    list.push(valor);
+    return list;
+}
+
+
+OTRA FORMA
+.split es un metodo que divide un objeto de tipo string en un array(vector) de
+cadena,mediante la separacion de la cadena en subcadena
+function otraFormaDeMiFunction3(text,separador){
+    if(typeof text !== 'string' && typeof separador !== 'string'){
+       console.error('Datos incorrectos')
+    }
+    else{
+        return text.split(separador)
+    }
+}
+
+
+let miFunction4 = (a,b) =>{
+    if(typeof a === 'string' && typeof b === 'number'){
+        num=a.length -1;
+        if( a[num] != ' '){
+            a+=' '
+        }
+        let resultado = a.repeat(b);
+        return resultado;
+    }
+    return 'La surre';
+}
+
+
+const miFunction5 = (text) =>{
+    if(typeof text !== 'string'){
+        return 'El valor ingresado no es valido';
+    }
+    else{
+        let rev = new String;
+        for(i = text.length; i >= 0 ; i--){
+            rev += text[i];
+        }
+        return console.log(rev)
+    }
+}
+
+Split separa y lo vuelve un array, join lo une otra vez a string 
+miFunction5('Hola Juan Carlos Como estas Chupapija');
+
+const otraFormaDeMiFunction5 = (cadena = "") =>(!cadena) ? console.warn('No ingresaste una cadena de texto') : console.info(cadena.split('').reverse().join(''));
+
+otraFormaDeMiFunction5('Hola Juan Carlos Como estas Chupapiija');
+
+
+const miFunction6 = (text,sr)=>{
+        if(typeof text , typeof sr !== 'string'){
+            return 'Jala'
+        }
+    }
+}
+
+
+const miFunction7 = (txt,text)=>{
     let cont = 0
     let contRound = 0
     if(typeof txt !== 'string' || typeof text !== 'string'){
@@ -439,8 +135,8 @@ One line
 }
 let a = 'holA COMO ESTAS chupPIJA hola hola hola' ;
 let b = 'hOla';
-
 miFunction7(a,b)
+
 
 const miFuncion8 = (txt) =>{
     txtLower = txt.toLowerCase();
@@ -456,6 +152,7 @@ const miFuncion8 = (txt) =>{
 }
 let a = 'oso'
 miFuncion8('Salas');
+
 
 const miFuncion9 = (txt, text) => {
     let cont = 0
@@ -486,9 +183,10 @@ const miFuncion9 = (txt, text) => {
 }
 miFuncion9("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz")
 
-const miFuncion10 =() => console.log(Math.floor(Math.random()*(600-501)+501))
 
+const miFuncion10 =() => console.log(Math.floor(Math.random()*(600-501)+501))
 miFuncion10()
+
 
 const miFuncion11 = (num) =>{
     if(typeof num !== 'number'){
@@ -505,6 +203,7 @@ const miFuncion11 = (num) =>{
 }
 miFuncion11(2002);
 
+
 const miFuncion12 =(num)=>{
     if(typeof num !== 'number' || num < 0){
         return alert('Valor invalido');
@@ -518,6 +217,7 @@ const miFuncion12 =(num)=>{
     }
 }
 miFuncion12(5);
+
 
 const miFuncion13 = (num) =>{
     let cont = 0
@@ -534,10 +234,13 @@ const miFuncion13 = (num) =>{
     return cont == 2 ? console.log(true) : console.log(false);
 }
 miFuncion13(11);
+
+
 Arrow Function OneLine
 const miFuncion14 = (num) => num % 2 == 0? console.log('Par') : console.log('Impar');
 
 miFuncion14(120);
+
 
 const miFuncion15 = (num,cov) =>{
     if(typeof num !== 'number' || typeof cov !== 'number'){
@@ -557,6 +260,7 @@ const miFuncion15 = (num,cov) =>{
 miFuncion15(4,2);
 miFuncion15(100,10);
 
+
 const miFuncion16 = (num=undefined,nume=undefined) =>{
     let desc = (num * nume) / 100
     if(typeof num !== 'number' || typeof nume !== 'number'){
@@ -566,6 +270,7 @@ const miFuncion16 = (num=undefined,nume=undefined) =>{
     }
 }
 miFuncion16(1000,20);
+
 
 const miFuncion17 = (tiempo = undefined) => {
     if(tiempo === undefined) return console.error('no ingresaste fecha');
@@ -582,7 +287,8 @@ const miFuncion17 = (tiempo = undefined) => {
 }
 miFuncion17(new Date(2004,5,28));
 
-// 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
 const miFuncion18 = (str) =>{
     let voc = 0,con = 0;
     if (!(typeof str === 'string')){
@@ -604,7 +310,10 @@ const miFuncion18 = (str) =>{
 miFuncion18("Hola Mundo")
 miFuncion18(5)
 
+
 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+
 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
 const miFuncion20 = (correo) =>{
     let dr = '@gmail.com';
@@ -613,8 +322,10 @@ const miFuncion20 = (correo) =>{
     return dr2 === dr? console.info("yes, it's a valid email"):console.error('not valid')
 }
 let cro = 'Juanfher.255@gmail.com';
-miFuncion20(cro);*/
-/*21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+miFuncion20(cro);
+
+
+21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
 
 const miFuncion21=(nums)=>{
     if (!(nums instanceof Array)){
@@ -629,49 +340,254 @@ const miFuncion21=(nums)=>{
     }
 }
 miFuncion21([1,4,5]) 
+
+
 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
-*/
+
 const miFuncion22 = (nums) =>{
     if(!(nums instanceof Array)){
         return console.error("You aren't adding an array")
     }
     else{
-        console.warn('Fine')
         let numMay = -9999
         let numMen = 9999 
-        let funcNum = nums.map(function(num){
-            console.log(num)
+        const IMPORTANT_NUMS = []
+        const funcNum = nums.map(function(num){
+            num > numMay ? numMay = num : num < numMen ? numMen = num : false ;
         })
+        IMPORTANT_NUMS.push(numMay,numMen)    
+    return console.info(IMPORTANT_NUMS)
     }
 }
 miFuncion22([1, 4, 5, 99, -60])
-/*
+
+
 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+const miFuncion23 = (nums) =>{
+const parNums = []
+const imparNums = []
+const parImpar = nums.map(num =>{
+    num % 2 == 0? parNums.push(num):imparNums.push(num);
+})
+return {
+    parNums,
+    imparNums
+}
+}
+console.log(miFuncion23([1,2,3,4,5,6,7,8,9,0]))
+
+
 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+.toReversed() revierte el array más no modifica el original a diferencia de reverse()
+
+sort() = ordena numeros de forma ascendentemm
+
+
+const miFuncion24 = (nums) =>{
+    if(!(nums instanceof Array)){
+        console.error("You aren't adding an array")
+    }
+    else{
+        let numMay = -9999
+        let numMen = 9999 
+        const desc = []
+        const funcNum = nums.map(function(num){
+            num > numMay ? numMay = num : num < numMen ? numMen = num : false ;
+        })
+    desc.push(numMay)
+    for(let i = numMay-1; i >= numMen ; i--){
+        const ascDesc = nums.map(num =>{
+        num == i? desc.push(num):false;
+        })
+    }
+    const asc = desc.toReversed()
+    return{
+        asc,
+        desc
+    }
+    }
+}   
+console.log(miFuncion24([7, 5,7,8,6]))
+
+
 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+const miFuncion25 = (arr) =>{
+    if(!(arr instanceof Object)){
+        console.error(`${arr} no es un arreglo`)
+    }
+    else{
+        if(arr.length == 0){
+            console.error('arreglo vacio')
+        }
+        else{
+            return console.info({
+                original : arr,
+                sinDuplicados :[...new Set(arr)]
+            })
+        }
+    }
+}
+miFuncion25(["x", 10, "x", 2, "10", 10, true, true]);
+miFuncion25([])
+miFuncion25('Hola mundo')
+
 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
-27) Programa una clase llamada Pelicula.
 
-La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
-  - Todos los datos del objeto son obligatorios.
-  - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
-     7 restantes números.
-  - Valida que el título no rebase los 100 caracteres.
-  - Valida que el director no rebase los 50 caracteres.
-  - Valida que el año de estreno sea un número entero de 4 dígitos.
-  - Valida que el país o paises sea introducidos en forma de arreglo.
-  - Valida que los géneros sean introducidos en forma de arreglo.
-  - Valida que los géneros introducidos esten dentro de los géneros 
-     aceptados*.
-  - Crea un método estático que devuelva los géneros aceptados*.
-  - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
-    decimal de una posición.
-  - Crea un método que devuelva toda la ficha técnica de la película.
-  - Apartir de un arreglo con la información de 3 películas genera 3 
-    instancias de la clase de forma automatizada e imprime la ficha técnica 
-    de cada película.
+const miFuncion26 = (arr) => {
+    if (!(arr instanceof Object)) {
+        console.error(`${arr} no es un arreglo`)
+    }
+    else {
+        for (const iterator of arr) {
+            if (typeof iterator != `number`){
+                return console.error(`${iterator} no es un numero`)
+            }
+        }
+        if (arr.length == 0) {
+            console.error('arreglo vacio')
+        }
+        else {
+            let i = arr.values();
+            let suma = 0;
+            const totalnum = arr.length
 
-* Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+            for (let num of i) {
+                suma = suma + num
+            }
 
-
+            return console.info({
+                arr,
+                promedio: suma / totalnum
+            })
+        }
+    }
+}
+miFuncion26([9,8,7,6,5,4,3,2,1,0])
 */
+// 27) Programa una clase llamada Pelicula.
+
+// La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+//   - Todos los datos del objeto son obligatorios.
+//   - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 
+//      7 restantes números.
+//   - Valida que el título no rebase los 100 caracteres.
+//   - Valida que el director no rebase los 50 caracteres.
+//   - Valida que el año de estreno sea un número entero de 4 dígitos.
+//   - Valida que el país o paises sea introducidos en forma de arreglo.
+//   - Valida que los géneros sean introducidos en forma de arreglo.
+//   - Valida que los géneros introducidos esten dentro de los géneros 
+//      aceptados*.
+//   - Crea un método estático que devuelva los géneros aceptados*.
+//   - Valida que la calificación sea un número entre 0 y 10 pudiendo ser 
+//     decimal de una posición.
+//   - Crea un método que devuelva toda la ficha técnica de la película.
+//   - Apartir de un arreglo con la información de 3 películas genera 3 
+//     instancias de la clase de forma automatizada e imprime la ficha técnica 
+//     de cada película.
+
+// * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+
+class ClassPeliculas{
+    constructor(id,titulo, director, anio, origen, genero, calificacion){
+        this.idPelicula = id
+        this.tituloPelicula = titulo
+        this.directorPelicula = director
+        this.anioEstreno = anio
+        this.origenPelicula = origen
+        this.generoPelicula = genero
+        this.calificacionPelicula = calificacion
+    }
+    static generosAceptados(){
+        console.info('Action',' Adult',' Adventure',' Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy','Film Noir','Game-Show','History','Horror','Musical','Music','Mystery','News','Reality-TV','Romance','Sci-Fi','Short','Sport','Talk-Show','Thriller, War', 'Western')
+    }
+    fichaTecnica(){
+        console.log('Id :',this.idPelicula)
+        console.log('Nombre :',this.tituloPelicula)
+        console.log('Director :',this.directorPelicula)
+        console.log('Año de estreno :',this.anioEstreno)
+        console.log('País(es) de Origen :',this.origenPelicula)
+        console.log('Genero :',this.generoPelicula)
+        console.log('Calificación :',this.calificacionPelicula)
+    }
+}
+const generosAceptados = ['Action',' Adult',' Adventure',' Animation','Biography','Comedy','Crime','Documentary','Drama','Family','Fantasy','Film Noir','Game-Show','History','Horror','Musical','Music','Mystery','News','Reality-TV','Romance','Sci-Fi','Short','Sport','Talk-Show','Thriller, War', 'Western']
+
+const verificador = (peliClass) =>{
+    let ok = true
+    const all = Object.values(peliClass)
+    const allOb = all.map(ob => ob === undefined? ok = false : true )
+    if (ok !== false) {
+        for (let i = 0; i < all.length; i++) {
+            switch (i) {
+                case 0:
+                    idArr = Array.of(all[i])
+                    idSplit = idArr.join().split('')
+                    if (idSplit.length >= 9) {
+                        for(let i=0 ; i<idSplit.length; i++) {
+                            if (i <= 1) {
+                                if (typeof idSplit[i] !== 'string') {
+                                    ok=false
+                                } 
+                            }
+                            else {
+                                idSplit[i] = parseInt(idSplit[i])
+                                if (typeof idSplit[i] !== 'number' || Number.isNaN(idSplit[i]) === true) {
+                                    ok=false
+                                }
+                            }
+                        }
+                        ok === false?console.error('ID INVALIDO'):console.info('ID VALIDO');
+                    }
+                    else console.error(false);
+                    break;
+                case 1:
+                    nameArr = Array.of(all[i])
+                    nameSplit = nameArr.join().split('')
+                    nameSplit.length <= 100? console.info('Titulo Valido'):
+                    console.error('Titulo INVALIDO')
+                    ok = false;
+                    break;
+                case 2:
+                    direArr = Array.of(all[i])
+                    direSplit = direArr.join().split('')
+                    direArr.length <= 50? console.info('Director Valido'):
+                    ok = false
+                    console.error('Director INVALIDO');
+                    break;
+                case 3:
+                    Number.isSafeInteger(all[i])? all[i] > 999 && all[i]<10000? console.info('Año Valido'):console.error('Año INVALIDO'):console.error('Dato INVALIDO');
+                    break;
+                case 4:
+                    all[i] instanceof Array? console.info('Origen Valido'):
+                    ok = false
+                    console.error('Origen INVALIDO');
+                    break;
+                case 5:
+                    let verificacionGenero = generosAceptados.some((generosAceptados) => generosAceptados.toUpperCase == all[i].toUpperCase)
+                    verificacionGenero != false ? console.log('Genero Valido'):
+                    ok = false
+                    console.error('Genero INVALIDO');
+                    break;
+                case 6:
+                    all[i] > -1 && all[i] <11? console.info('Calificación Valida'):
+                    ok = false
+                    console.error('Calificación INVALIDA');
+                    break;    
+                default:
+                    break;
+            }
+        }
+    }
+    else{
+        console.error('all objects are required')
+    }
+}
+
+const SPIDERMAN =new ClassPeliculas('ab3456689', 'The amazing Spider-man','Marvel', 2004,['GT','MXN','EEUU'],'Action','10')
+const THOR = new ClassPeliculas('Thor','Marvel', 2004,null,'Action','10/10')
+
+//console.log(THOR)
+verificador(THOR);
+// verificador(SPIDERMAN);
+SPIDERMAN.fichaTecnica()
