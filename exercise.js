@@ -1,4 +1,4 @@
-
+export * from exercise;
 /*            -------------------------Ejercicios Jonmircha-------------------------
 
 let saludar = 'Hola Mundo'

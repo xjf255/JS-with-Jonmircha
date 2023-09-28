@@ -1,3 +1,4 @@
+export * from (impotants.js);
 /*Modelos arrowFunction
 more line
 async (param1, param2, ...paramN) => {
