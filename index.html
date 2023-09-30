@@ -12,35 +12,65 @@
 </head>
 
 <body>
+    <!-- Estilo en linea -->
+    <!-- <p style="color:#fff">Enfocate</p> -->
+
+        <!-- Estilo Interno -->
+        <style>
+            *{
+                font-size: 1.6rem;
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+            body{
+                width: 100vw;
+                height: 100vh;
+                background-color: #000;
+                color: #fff;
+            }
+            .container{
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+            }
+            .eventos-flujo div{
+                padding: 4rem;
+                font-size: 2rem;
+                text-align: center;
+            }
+            .uno{
+                background-color: red;
+            }
+            .dos{background-color: aqua;}
+            .tres{background-color:wheat;}
+        </style>
     <div class="container">
         <p id="txt">Enfocate</p>    
         <a href="#" id="link-dom" data-document="Document Object Model" style="background-color: rgb(4, 68, 4); color: white;">DOM</a>
     </div>
-    <!-- Estilo en linea -->
-    <!-- <p style="color:#fff">Enfocate</p> -->
 
-    <!-- Estilo Interno -->
-    <style>
-        *{
-            font-size: 1.6rem;
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-        body{
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-            color: #fff;
-        }
-        .container{
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-    </style>
+    <h4>Flujos del evento</h4>
+    <section class="eventos-flujo">
+        <div class="uno">
+            <div class="dos">
+                <div class="tres">
+                    <a href="https://www.instagram.com/xjf_255/" target="_blank">ig</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button id="vuno">
+        abrir ventana
+    </button>
+    <button id="vdos">
+        Cerrar ventana
+    </button>
+    <button id="vtres">
+        imprimir    
+    </button>
 </body>
 <script src="main.js"></script>
 </html>

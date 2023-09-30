@@ -60,3 +60,98 @@ $figure.appendChild($figcaptionText)
 //Usar fragmentos para no generar una gran demanda al dom, en sentido de meter todo en un fragment y luego agregarlo a un nodo, en lugar de estar haciendo incersiones al dom
 // const $fragment = document.createDocumentFragment();
 
+//Modificando elementos
+/*
+const $newCard = document.createElement("figure"),
+    $cards = document.querySelector(".cards"),
+    //se le pasa el valor booleano para que clone todo su interior
+    $cloneCards = $cards.cloneNode(true);
+
+$newCard.innerHTML = `<h1>hola</h1>`
+//remplazar un nodo hijo
+$cards.replaceChild($newCard,$cards.children[2])
+//insertar
+$cards.insertBefore($newCard,$cards.firstElementChild);
+//eliminar
+$cards.removeChild($cards.lastElementChild);
+
+/*Insertar adyacentes
+    insertAdjacent..                    //alternativas nuevas de: 
+    insertAdjacentElement(position,el) //append
+    insertAdjacentHTML(position,html) //iner
+    insertAdjacentText(position,text) //content
+
+Posiciones                                  
+    Beforebegin (hermano Anterios)          
+    afterbegin(primer hijo)                 
+    befordend(ultimo hijo)                  
+    afterend(hermano siguiente)             
+*/
+//Eventos 
+const saludo = (name = "Desconocido") =>{
+    alert(`Hola ${name}`)
+}
+// Manejadores multiples
+$linkDOM.addEventListener("click",() =>{
+    saludo();
+    saludo("Fernando");
+    console.log(event)
+})
+
+//Quitar eventos por default
+const $linkIg = document.querySelector(".eventos-flujo a")
+$linkIg.addEventListener("click",(e) => {
+    alert("Seguime puto");
+    e.preventDefault();
+    e.stopPropagation();
+})
+// delegacion de eventos
+
+//de esta manera no se propaga y es mas eficiente
+document.addEventListener("click",(e)=>{
+    console.log(e.target)
+    if(e.target.matches(".eventos-flujo div")){
+        console.log("Hola te saluda ",e.target.className)
+    }
+})
+//--------------BOM--------------
+window.addEventListener("resize",() =>{
+    console.clear() 
+    //Tamaño Dom
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
+    //tamaño ventana Windows
+    console.log(window.outerHeight)
+    console.log(window.outerHeight)
+})
+window.addEventListener("scroll", ()=>{
+    console.clear();
+    console.log(window.scrollX)
+    console.log(window.scrollY)
+})
+window.addEventListener("load", ()=>{
+    // console.clear();
+    console.log(window.screenX)
+    console.log(window.screenY)
+})
+//Es igual que el de windows pero este es más rapido y eficiente
+document.addEventListener("DOMContentLoaded", ()=>{
+    // console.clear();
+    console.log(window.screenX)
+    console.log(window.screenY)
+})
+console.clear()
+const $vuno = document.getElementById("vuno"),
+ $vdos = document.getElementById("vdos"),
+ $vtres = document.getElementById("vtres");
+let url;
+
+ $vuno.addEventListener("click", ()=>{
+    url = open("https://github.com/xjf255")
+ })
+ $vdos.addEventListener("click", ()=>{
+    url.close()
+ })
+ $vtres.addEventListener("click", ()=>{
+    print();
+ })
